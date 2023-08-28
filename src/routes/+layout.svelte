@@ -55,12 +55,11 @@
 </section>
 
 <Footer class="sticky top-[100vh]">
-	<FooterCopyright
-		by="Rishab Garg."
-		year={new Date().getFullYear()}
-		copyrightMessage="Alle Rechte vorbehalten."
-	/>
-	<a class="block text-sm text-gray-500 sm:text-center" href="">Lizensiert unter der EUPL.</a>
+	<span class="block text-sm text-gray-500 sm:text-center">
+		© {new Date().getFullYear()} Rishab Garg. Quellcode
+		<a class="underline" href="https://github.com/RisGar/altdeutsches-woerterbuch"> hier </a>
+		einsehbar.
+	</span>
 	<FooterLinkGroup ulClass="flex flex-wrap items-center mt-3 text-sm text-gray-500 sm:mt-0">
 		<FooterLink href="/contact">Kontakt</FooterLink>
 	</FooterLinkGroup>
