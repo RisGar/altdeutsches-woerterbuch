@@ -27,6 +27,9 @@ export default {
 					900: "#A5371B",
 				},
 			},
+			screens: {
+				"-md": { max: "767px" },
+			},
 		},
 	},
 } satisfies Config

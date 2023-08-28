@@ -10,7 +10,6 @@
 		Button,
 		Avatar,
 		Footer,
-		FooterCopyright,
 		FooterLinkGroup,
 		FooterLink,
 	} from "flowbite-svelte"
@@ -30,18 +29,18 @@
 <Navbar let:hidden let:toggle>
 	<NavBrand href="/">
 		<Icon name="book-solid" class="mr-3 h-6 sm:h-9" alt="Buch" />
-		<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white"
-			>Altdeutsches Wörterbuch
+		<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white -md:hidden">
+			Altdeutsches Wörterbuch
 		</span>
 	</NavBrand>
 	<div class="flex md:order-2">
-		<NavHamburger on:click={toggle} />
 		{#if $page.data.session}
 			<Button size="sm" on:click={() => signOut()}>Ausloggen</Button>
 			<Avatar class="ml-4" rounded href="/words/me" />
 		{:else}
 			<Button size="sm" on:click={() => signIn()}>Einloggen</Button>
 		{/if}
+		<NavHamburger on:click={toggle} />
 	</div>
 	<NavUl {activeUrl} {hidden} class="order-1">
 		<NavLi href="/">Suche</NavLi>
@@ -54,13 +53,13 @@
 	<slot />
 </section>
 
-<Footer class="sticky top-[100vh]">
-	<span class="block text-sm text-gray-500 sm:text-center">
-		© {new Date().getFullYear()} Rishab Garg. Quellcode
-		<a class="underline" href="https://github.com/RisGar/altdeutsches-woerterbuch"> hier </a>
-		einsehbar.
+<Footer class="sticky top-[100vh] flex">
+	<span class="text-sm text-gray-500 sm:text-center">
+		© {new Date().getFullYear()} Rishab Garg
 	</span>
-	<FooterLinkGroup ulClass="flex flex-wrap items-center mt-3 text-sm text-gray-500 sm:mt-0">
+	<FooterLinkGroup
+		ulClass="mt-3 ml-auto text-sm text-gray-500 mt-0 hover:underline focus:underline"
+	>
 		<FooterLink href="/contact">Kontakt</FooterLink>
 	</FooterLinkGroup>
 </Footer>
