@@ -2,13 +2,13 @@
 
 ## Developing
 
-Once you've created a project and installed dependencies with `yarn`, start a development server:
+Once you've created a project and installed dependencies with `pnpm`, start a development server:
 
 ```fish
-yarn db:push
+pnpm db:push
 
 # or start the server and open the app in a new browser tab
-yarn dev
+pnpm dev
 ```
 
 ## Building
@@ -16,10 +16,10 @@ yarn dev
 To create a production version of the app:
 
 ```fish
-yarn db:push
-yarn build
+pnpm db:push
+pnpm build
 ```
 
-You can preview the production build with `npm run preview`.
+You can preview the production build with `pnpm preview`.
 
-To run the app on Node.JS run `npm build`.
+To run the app on Node.JS run `node build`.

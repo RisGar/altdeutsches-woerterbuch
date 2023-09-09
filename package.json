@@ -13,6 +13,10 @@
 		"db:push": "drizzle-kit push:sqlite",
 		"postinstall": "husky install"
 	},
+	"engines": {
+		"node": ">=18",
+		"pnpm": ">=8"
+	},
 	"type": "module",
 	"devDependencies": {
 		"@commitlint/cli": "^17.7.1",
@@ -29,7 +33,7 @@
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-svelte": "^2.33.0",
 		"flowbite-svelte": "^0.44.15",
-		"flowbite-svelte-icons": "^0.3.6",
+		"flowbite-svelte-icons": "^0.4.3",
 		"husky": "^8.0.3",
 		"postcss": "^8.4.29",
 		"postcss-load-config": "^4.0.1",
