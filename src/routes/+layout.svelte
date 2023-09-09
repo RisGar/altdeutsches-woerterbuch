@@ -15,6 +15,20 @@
 	} from "flowbite-svelte"
 	import { Icon } from "flowbite-svelte-icons"
 	import { signIn, signOut } from "@auth/sveltekit/client"
+	import { onNavigate } from "$app/navigation"
+
+	onNavigate((navigation) => {
+		// @ts-expect-error experimental api
+		if (!document.startViewTransition) return
+
+		return new Promise((resolve) => {
+			// @ts-expect-error experimental api
+			document.startViewTransition(async () => {
+				resolve()
+				await navigation.complete
+			})
+		})
+	})
 
 	$: activeUrl = $page.url.pathname
 	$: title = $page.data.title
