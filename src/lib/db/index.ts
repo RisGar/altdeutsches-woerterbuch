@@ -7,6 +7,7 @@ export type Word = typeof schema.words.$inferSelect
 export type NewWord = typeof schema.words.$inferInsert
 
 const sqlite = new Database("database.db")
+sqlite.pragma("journal_mode = WAL")
 export const db = drizzle(sqlite, { schema })
 
 export function insertWord(word: NewWord): void {
