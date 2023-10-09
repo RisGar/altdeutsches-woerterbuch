@@ -13,7 +13,7 @@
 		FooterLinkGroup,
 		FooterLink,
 	} from "flowbite-svelte"
-	import { Icon } from "flowbite-svelte-icons"
+	import { BookSolid } from "flowbite-svelte-icons"
 	import { signIn, signOut } from "@auth/sveltekit/client"
 	import { onNavigate } from "$app/navigation"
 
@@ -42,7 +42,7 @@
 
 <Navbar let:hidden let:toggle>
 	<NavBrand href="/">
-		<Icon name="book-solid" class="mr-3 h-6 sm:h-9" alt="Buch" />
+		<BookSolid class="mr-3 h-6 sm:h-9" alt="Buch" />
 		<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white -md:hidden">
 			Altdeutsches Wörterbuch
 		</span>

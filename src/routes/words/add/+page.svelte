@@ -2,7 +2,7 @@
 	import { Input, Label, Helper, Button, Toast, Select } from "flowbite-svelte"
 	import { enhance } from "$app/forms"
 	import Required from "./Required.svelte"
-	import { Icon } from "flowbite-svelte-icons"
+	import { CheckCircleSolid, CloseCircleSolid } from "flowbite-svelte-icons"
 	import type { ActionData, PageData } from "./$types"
 
 	export let data: PageData
@@ -46,17 +46,17 @@
 </script>
 
 <Toast color="orange" position="top-right" bind:open={success}>
-	<Icon name="check-circle-solid" slot="icon" />
+	<CheckCircleSolid slot="icon" />
 	<div>Wort wurde erfolgreich hinzugefügt.</div>
 </Toast>
 
 <Toast color="red" position="top-right" bind:open={duplicate}>
-	<Icon name="close-circle-solid" slot="icon" />
+	<CloseCircleSolid slot="icon" />
 	<div>Wort existiert bereits.</div>
 </Toast>
 
 <Toast color="red" position="top-right" bind:open={captcha}>
-	<Icon name="close-circle-solid" slot="icon" />
+	<CloseCircleSolid slot="icon" />
 	<div>Das Captcha ist inkorrekt.</div>
 </Toast>
 

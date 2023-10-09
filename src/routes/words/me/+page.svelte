@@ -1,5 +1,6 @@
 <script lang="ts">
 	import {
+		Button,
 		TableBody,
 		TableBodyCell,
 		TableBodyRow,
@@ -9,11 +10,19 @@
 	} from "flowbite-svelte"
 	import type { PageData } from "./$types"
 	export let data: PageData
+	import { TrashBinSolid } from "flowbite-svelte-icons"
+	import type { Word } from "$lib/db"
 
 	let searchTerm = ""
 	$: filtered = data.words
 		.filter((e) => e.word.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1)
 		.sort()
+
+	async function deleteWord(item: Word) {
+		await fetch("/words/delete", {
+			method: "POST",
+		})
+	}
 </script>
 
 <TableSearch placeholder="Nach einem Wort suchen" hoverable={true} bind:inputValue={searchTerm}>
@@ -30,6 +39,7 @@
 		<TableHeadCell>Zeit</TableHeadCell>
 		<TableHeadCell>Ursprung</TableHeadCell>
 		<TableHeadCell>Todesursache</TableHeadCell>
+		<TableHeadCell>Entfernen</TableHeadCell>
 	</TableHead>
 	<TableBody tableBodyClass="divide-y">
 		{#each filtered as item}
@@ -40,6 +50,11 @@
 				<TableBodyCell>{item.time ?? ""}</TableBodyCell>
 				<TableBodyCell>{item.origin ?? ""}</TableBodyCell>
 				<TableBodyCell>{item.reasonOfDeath ?? ""}</TableBodyCell>
+				<TableBodyCell>
+					<Button class="!p-2" on:click={() => deleteWord(item)}>
+						<TrashBinSolid class="w-5 h-5" />
+					</Button>
+				</TableBodyCell>
 			</TableBodyRow>
 		{/each}
 	</TableBody>
